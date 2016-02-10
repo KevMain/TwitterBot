@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CompatibleSoftware.BLL;
 
 namespace CompatibleSoftware.TwitterBot
@@ -8,8 +9,15 @@ namespace CompatibleSoftware.TwitterBot
         static void Main(string[] args)
         {
             Console.WriteLine("Starting up...");
-
-            var taskRunner = new TaskRunner();
+            
+            var taskRunner = new TaskRunner(
+                new List<ITask>
+                {
+                    new ReminderTask(
+                        new Twitter(new TwitterConfigFileSettings()),
+                        new GitHub(new GitHubConfigFileSettings()))
+                });
+        
 
             taskRunner.RunTasks();
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Octokit;
@@ -9,16 +8,16 @@ namespace CompatibleSoftware.BLL
 {
     public class GitHub : IGitHub
     {
+        private readonly IGitHubConfiguration _gitHubConfiguration;
         private readonly GitHubClient _gitHubClient;
 
-        public GitHub()
+        public GitHub(IGitHubConfiguration gitHubConfiguration)
         {
-            var gitHubToken = ConfigurationManager.AppSettings["GitHub.Token"];
-            var gitHubAppName = ConfigurationManager.AppSettings["GitHub.AppName"];
-
-            _gitHubClient = new GitHubClient(new ProductHeaderValue(gitHubAppName))
+            _gitHubConfiguration = gitHubConfiguration;
+            
+            _gitHubClient = new GitHubClient(new ProductHeaderValue(_gitHubConfiguration.AppName))
             {
-                Credentials = new Credentials(gitHubToken)
+                Credentials = new Credentials(_gitHubConfiguration.Token)
             };
         }
         
@@ -30,9 +29,7 @@ namespace CompatibleSoftware.BLL
 
         private async Task<IReadOnlyList<Activity>> GetAllUserActivities()
         {
-            var gitHubUser = ConfigurationManager.AppSettings["GitHub.User"];
-            
-            return await _gitHubClient.Activity.Events.GetAllUserPerformed(gitHubUser);
+            return await _gitHubClient.Activity.Events.GetAllUserPerformed(_gitHubConfiguration.UserName);
         }
 
         private List<Activity> GetAllPushEventsForUserInTimePeriod(DateTime startDate, DateTime endDate)

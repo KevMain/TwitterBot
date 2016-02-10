@@ -57,7 +57,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GitHubConfigFileSettings.cs" />
+    <Compile Include="IGitHubConfiguration.cs" />
+    <Compile Include="TwitterConfigFileSettings.cs" />
     <Compile Include="GitHub.cs" />
+    <Compile Include="ITwitterConfiguration.cs" />
     <Compile Include="IGitHub.cs" />
     <Compile Include="ITask.cs" />
     <Compile Include="ITwitter.cs" />

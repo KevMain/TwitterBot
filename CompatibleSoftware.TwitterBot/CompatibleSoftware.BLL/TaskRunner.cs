@@ -6,9 +6,9 @@ namespace CompatibleSoftware.BLL
     {
         private readonly IList<ITask> _tasks;
 
-        public TaskRunner()
+        public TaskRunner(IList<ITask> tasks)
         {
-            _tasks = new List<ITask> {new ReminderTask(new Twitter(), new GitHub())};
+            _tasks = tasks;
         }
 
         public void RunTasks()
