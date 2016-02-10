@@ -57,18 +57,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GitHubConfigFileSettings.cs" />
-    <Compile Include="IGitHubConfiguration.cs" />
-    <Compile Include="TwitterConfigFileSettings.cs" />
-    <Compile Include="GitHub.cs" />
-    <Compile Include="ITwitterConfiguration.cs" />
-    <Compile Include="IGitHub.cs" />
-    <Compile Include="ITask.cs" />
-    <Compile Include="ITwitter.cs" />
+    <Compile Include="Configuration\GitHubConfigFileSettings.cs" />
+    <Compile Include="Repositories\GitHubRepository.cs" />
+    <Compile Include="Configuration\IGitHubConfiguration.cs" />
+    <Compile Include="Repositories\IGitHubRepository.cs" />
+    <Compile Include="Repositories\ITwitterRepository.cs" />
+    <Compile Include="Configuration\TwitterConfigFileSettings.cs" />
+    <Compile Include="Services\GitHubService.cs" />
+    <Compile Include="Configuration\ITwitterConfiguration.cs" />
+    <Compile Include="Services\IGitHubService.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Services\ITwitterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskRunner.cs" />
-    <Compile Include="Twitter.cs" />
-    <Compile Include="ReminderTask.cs" />
+    <Compile Include="Tasks\TaskRunner.cs" />
+    <Compile Include="Repositories\TwitterRepository.cs" />
+    <Compile Include="Services\TwitterService.cs" />
+    <Compile Include="Tasks\ReminderTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

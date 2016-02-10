@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace CompatibleSoftware.BLL
+namespace CompatibleSoftware.BLL.Configuration
 {
     public class TwitterConfigFileSettings : ITwitterConfiguration
     {

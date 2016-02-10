@@ -1,4 +1,4 @@
-﻿namespace CompatibleSoftware.BLL
+﻿namespace CompatibleSoftware.BLL.Configuration
 {
     public interface IGitHubConfiguration
     {

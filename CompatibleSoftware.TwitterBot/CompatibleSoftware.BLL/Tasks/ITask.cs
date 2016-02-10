@@ -1,4 +1,4 @@
-﻿namespace CompatibleSoftware.BLL
+﻿namespace CompatibleSoftware.BLL.Tasks
 {
     public interface ITask
     {

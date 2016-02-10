@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CompatibleSoftware.BLL
+namespace CompatibleSoftware.BLL.Tasks
 {
     public class TaskRunner
     {
