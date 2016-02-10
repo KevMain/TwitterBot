@@ -7,7 +7,7 @@ using Octokit;
 
 namespace CompatibleSoftware.BLL
 {
-    public class GitHub
+    public class GitHub : IGitHub
     {
         private readonly GitHubClient _gitHubClient;
 

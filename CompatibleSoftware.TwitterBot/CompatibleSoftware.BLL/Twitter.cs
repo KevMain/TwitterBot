@@ -3,7 +3,7 @@ using TweetSharp;
 
 namespace CompatibleSoftware.BLL
 {
-    public class Twitter
+    public class Twitter : ITwitter
     {
         private readonly TwitterService _twitterService;
         
