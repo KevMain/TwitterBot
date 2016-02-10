@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using CompatibleSoftware.BLL;
 
 namespace CompatibleSoftware.TwitterBot

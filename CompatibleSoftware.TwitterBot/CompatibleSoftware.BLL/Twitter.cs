@@ -1,4 +1,5 @@
-﻿using TweetSharp;
+﻿using System.Configuration;
+using TweetSharp;
 
 namespace CompatibleSoftware.BLL
 {
@@ -8,8 +9,13 @@ namespace CompatibleSoftware.BLL
         
         public Twitter()
         {
-            _twitterService = new TwitterService("", "");
-            _twitterService.AuthenticateWith("", "");
+            var consumerKey = ConfigurationManager.AppSettings["ConsumerKey"];
+            var consumerSecret = ConfigurationManager.AppSettings["ConsumerSecret"];
+            var token = ConfigurationManager.AppSettings["Token"];
+            var tokenSecret = ConfigurationManager.AppSettings["TokenSecret"];
+
+            _twitterService = new TwitterService(consumerKey, consumerSecret);
+            _twitterService.AuthenticateWith(token, tokenSecret);
         }
         
         public void SendTweetToUser(string username, string message)
