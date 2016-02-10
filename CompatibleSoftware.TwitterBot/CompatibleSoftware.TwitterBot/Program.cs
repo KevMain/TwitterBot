@@ -10,7 +10,11 @@ namespace CompatibleSoftware.TwitterBot
             Console.WriteLine("Starting up...");
 
             var twitter = new Twitter();
-            twitter.SendTweet("This is some text");
+            
+            Console.Write("Enter a message: ");
+            var message = Console.ReadLine();
+
+            twitter.SendTweetToUser("KevMain", message);
 
             Console.WriteLine("Tweet Sent");
 
