@@ -9,21 +9,23 @@ namespace CompatibleSoftware.BLL
         
         public Twitter()
         {
-            var consumerKey = ConfigurationManager.AppSettings["ConsumerKey"];
-            var consumerSecret = ConfigurationManager.AppSettings["ConsumerSecret"];
-            var token = ConfigurationManager.AppSettings["Token"];
-            var tokenSecret = ConfigurationManager.AppSettings["TokenSecret"];
+            var consumerKey = ConfigurationManager.AppSettings["Twitter.ConsumerKey"];
+            var consumerSecret = ConfigurationManager.AppSettings["Twitter.ConsumerSecret"];
+            var token = ConfigurationManager.AppSettings["Twitter.Token"];
+            var tokenSecret = ConfigurationManager.AppSettings["Twitter.TokenSecret"];
 
             _twitterService = new TwitterService(consumerKey, consumerSecret);
             _twitterService.AuthenticateWith(token, tokenSecret);
         }
         
-        public void SendTweetToUser(string username, string message)
+        public void SendTweetToUser(string message)
         {
+            var twitterUserName = ConfigurationManager.AppSettings["Twitter.UserName"];
+
             _twitterService.SendTweet(
                 new SendTweetOptions
                 {
-                    Status = $"@{username} {message}"
+                    Status = $"@{twitterUserName} {message}"
                 });
         }
     }
